@@ -1,0 +1,50 @@
+main card: 71 1E A3 C3
+sak : 08
+
+card1: 43 EA 0D 32
+
+
+card2: 53 2E 44 32
+
+tag : 6B D3 99 1B
+
+   if (content == Peyas)
+   {Serial.print();
+    Serial.println ("Name: Ismot Sadik Peyas");
+   }
+   
+   else if (content == "Swapnil")
+   {Serial.print();
+   Serial.println ("Name: Swapnil kar");
+   }
+   else if (content.substring(1) == "Rimi" )
+   {Serial.print();
+   Serial.println ("Name: Rimi");
+   }
+   else
+   {Serial.print();
+   Serial.println("--------------");
+    }
+
+
+
+
+ int checkBalance(int cardvalue)
+       {  if(cardvalue >=3)
+           {   cardvalue=cardvalue - 3;
+               Serial.println ("your balance= "); 
+               Serial.print (cardvalue);
+               Serial.println ("$");
+           }
+         else
+         {   myServo.write(0);
+             Serial.print("please renew your card....");
+             Serial.println(" Access denied");
+             Serial.println();
+             digitalWrite(LED_R, HIGH);
+             tone(BUZZER, 300);
+             delay(1000);
+             digitalWrite(LED_R, LOW);
+             noTone(BUZZER);
+         } 
+       } 
